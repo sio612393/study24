@@ -1,13 +1,3 @@
-node_modules
-build
-libs
-.vscode
-**/.DS_Store
-dist
-plugins/
-tmp/
-bin/
-
 # Logs
 logs
 *.log
@@ -37,3 +27,7 @@ npm-debug.log.*
 *.css.d.ts
 *.sass.d.ts
 *.scss.d.ts
+
+# eslint ignores hidden directories by default:
+# https://github.com/eslint/eslint/issues/8429
+!.erb
