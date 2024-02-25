@@ -1,10 +1,19 @@
 // Disable no-unused-vars, broken for spread args
 /* eslint no-unused-vars: off */
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
+import { IPCKeys } from './Constants';
 
 export type Channels = 'ipc-example';
 export type ChannelsStore = 'ipc-store';
 
+contextBridge.exposeInMainWorld('apiKeyStudy1', {
+  ipcStudy1: async (key: string, value: number) => ipcRenderer.invoke(IPCKeys.ICP_STUDY1, key, value),
+});
+
+// -----
+// -----
+// -----
+// -----
 const electronHandler = {
   ipcRenderer: {
     sendMessage(channel: Channels, ...args: unknown[]) {

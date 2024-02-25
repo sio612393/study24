@@ -16,6 +16,7 @@ import Store from 'electron-store';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import { HelloWorld } from './study/HelloWorld';
+import { IPCKeys } from './Constants';
 
 // class AppUpdater {
 //   constructor() {
@@ -28,7 +29,24 @@ import { HelloWorld } from './study/HelloWorld';
 let mainWindow: BrowserWindow | null = null;
 
 // IPC listener
-const store = new Store();
+type StoreType = {
+  foo: number;
+};
+const store = new Store<StoreType>();
+store.set({ foo: 100 });
+
+ipcMain.handle(IPCKeys.ICP_STUDY1, async (event, ...args) => {
+  const key = args[0];
+  const value = args[1];
+  const current = store.get(key);
+  const newVaalue = current + value;
+  console.log(`key: ${key}, value: ${value}, current: ${current}, new value: ${newVaalue}    `);
+  store.set(key, newVaalue);
+  return Promise.resolve({ value: newVaalue });
+});
+
+// -----
+// -----
 ipcMain.on('ipc-store', async (event, val) => {
   console.log(`### get()`);
   event.returnValue = store.get(val);
@@ -94,7 +112,8 @@ const createWindow = async () => {
     },
   });
 
-// TODO aa
+  // TODO aa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  console.log(`9012345678901234567890123456789012345678901234567890123456789012345678901234567890`);
   console.log(`@@@@ ${resolveHtmlPath('index.html')}`);
   log.debug(`#### ${resolveHtmlPath('index.html')}`);
   mainWindow.loadURL(resolveHtmlPath('index.html'));

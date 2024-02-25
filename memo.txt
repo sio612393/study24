@@ -63,3 +63,10 @@ xattr -d ファイル名 で属性削除。
 Ejs is a template engine.
 After the template is rendered, it generates a .html file for the browser.
 
+
+###
+1. TypeScript/JavaScript:
+  Leverage camelCase for variables and functions.
+  Classes and Interfaces use PascalCase.
+  Constants should be all UPPERCASE.
+
