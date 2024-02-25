@@ -113,9 +113,9 @@ const createWindow = async () => {
   });
 
   // TODO aa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  console.log(`9012345678901234567890123456789012345678901234567890123456789012345678901234567890`);
-  console.log(`@@@@ ${resolveHtmlPath('index.html')}`);
-  log.debug(`#### ${resolveHtmlPath('index.html')}`);
+  console.log(`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa12345678901234567890`);
+  // console.log(`@@@@ ${resolveHtmlPath('index.html')}`);
+  // log.debug(`#### ${resolveHtmlPath('index.html')}`);
   mainWindow.loadURL(resolveHtmlPath('index.html'));
   mainWindow.webContents.openDevTools();
 
