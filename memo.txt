@@ -42,6 +42,12 @@ http://127.0.0.1:8889
 
 
 
+### TEST
+npm run build
+npm test
+
+
+
 ### package
 npm run package -- --mac
 npx cross-env DEBUG_PROD=true npm run package -- --mac
