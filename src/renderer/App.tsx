@@ -34,12 +34,25 @@ function Hello() {
             Donate
           </button>
         </a>
+        <button
+          type="button"
+          onClick={() => {
+            const current = window.electron.store.get('ipc-store', 'foo');
+            window.electron.store.set('ipc-store', 'foo', current + 2);
+            const readBack = window.electron.store.get('ipc-store', 'foozzzzzzzzzz');
+            console.log(`App.tsx: ` + readBack);
+            // console.log(window.electron.store.get('ipc-store', 'foo'));
+          }}
+        >
+          Click Me!
+        </button>
       </div>
     </div>
   );
 }
 
 export default function App() {
+  // console.log(`App.tsx ============`)
   return (
     <Router>
       <Routes>

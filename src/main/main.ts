@@ -10,20 +10,34 @@
  */
 import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
-import { autoUpdater } from 'electron-updater';
+// import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import Store from 'electron-store';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import { HelloWorld } from './study/HelloWorld';
 
-class AppUpdater {
-  constructor() {
-    log.transports.file.level = 'info';
-    autoUpdater.logger = log;
-    autoUpdater.checkForUpdatesAndNotify();
-  }
-}
+// class AppUpdater {
+  //   constructor() {
+    //     log.transports.file.level = 'info';
+    //     autoUpdater.logger = log;
+    //     autoUpdater.checkForUpdatesAndNotify();
+  //   }
+// }
 
 let mainWindow: BrowserWindow | null = null;
+
+// IPC listener
+const store = new Store();
+ipcMain.on('ipc-store', async (event, val) => {
+  console.log(`### get()`);
+  event.returnValue = store.get(val);
+});
+ipcMain.on('ipc-store', async (event, key, val) => {
+  console.log(`### set()`);
+  const current: number = store.get(key);
+  store.set(key, current + val);
+});
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -36,8 +50,7 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-const isDebug =
-  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
+const isDebug = process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
 if (isDebug) {
   require('electron-debug')();
@@ -81,7 +94,11 @@ const createWindow = async () => {
     },
   });
 
+// TODO aa
+  console.log(`@@@@ ${resolveHtmlPath('index.html')}`);
+  log.debug(`#### ${resolveHtmlPath('index.html')}`);
   mainWindow.loadURL(resolveHtmlPath('index.html'));
+mainWindow.webContents.openDevTools();
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
@@ -109,7 +126,7 @@ const createWindow = async () => {
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
-  new AppUpdater();
+  //   new AppUpdater();// TODO KS
 };
 
 /**
@@ -133,5 +150,9 @@ app
       // dock icon is clicked and there are no other windows open.
       if (mainWindow === null) createWindow();
     });
+
+    console.log(`##################`);
+    HelloWorld.print();
+    // helloWorld.helloWorld()
   })
   .catch(console.log);
