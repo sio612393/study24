@@ -18,11 +18,11 @@ import { resolveHtmlPath } from './util';
 import { HelloWorld } from './study/HelloWorld';
 
 // class AppUpdater {
-  //   constructor() {
-    //     log.transports.file.level = 'info';
-    //     autoUpdater.logger = log;
-    //     autoUpdater.checkForUpdatesAndNotify();
-  //   }
+//   constructor() {
+//     log.transports.file.level = 'info';
+//     autoUpdater.logger = log;
+//     autoUpdater.checkForUpdatesAndNotify();
+//   }
 // }
 
 let mainWindow: BrowserWindow | null = null;
@@ -98,7 +98,7 @@ const createWindow = async () => {
   console.log(`@@@@ ${resolveHtmlPath('index.html')}`);
   log.debug(`#### ${resolveHtmlPath('index.html')}`);
   mainWindow.loadURL(resolveHtmlPath('index.html'));
-mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
