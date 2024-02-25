@@ -94,4 +94,12 @@ resolve: npm install electron
       URL:      chrome-extension://migiffogdgdjnpibpnjjoaghakoegcmg/build/background.js
       Function: (anonymous function)
     }
+
 ====================================================================
+resolve: comment out around REACT_DEVELOPER_TOOLS
+====================================================================
+[25048:0225/182715.517786:ERROR:CONSOLE(2)] "Electron sandboxed_renderer.bundle.js script failed to run", source: node:electron/js2c/sandbox_bundle (2)
+[25048:0225/182715.517816:ERROR:CONSOLE(2)] "TypeError: object null is not iterable (cannot read property Symbol(Symbol.iterator))", source: node:electron/js2c/sandbox_bundle (2)
+
+====================================================================
+
