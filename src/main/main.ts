@@ -170,8 +170,11 @@ app
       if (mainWindow === null) createWindow();
     });
 
-    console.log(`##################`);
-    HelloWorld.print();
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++
+    console.log(`main.ts: ##################`);
+    const hw = new HelloWorld();
+    hw.print();
     // helloWorld.helloWorld()
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++
   })
   .catch(console.log);

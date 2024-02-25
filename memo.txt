@@ -58,11 +58,27 @@ Ejs is a template engine.
 After the template is rendered, it generates a .html file for the browser.
 
 
-###
-1. TypeScript/JavaScript:
+### TypeScript/JavaScript:
   Leverage camelCase for variables and functions.
   Classes and Interfaces use PascalCase.
   Constants should be all UPPERCASE.
+
+### import and export syntax:
+ECMAScript Modules (ESM) - import and export
+  // a.js
+  export default "Hello from a.js";
+  // b.js
+  import a from "./a.js";
+  console.log(a); // 'Hello from a.js'
+CommonJS (CJS) - plain JavaScript objects and functions named exports and require
+  // a.js
+  exports.message = "Hello from a.js";
+  // b.js
+  const a = require("./a");
+  console.log(a.message); // 'Hello from a.js'
+
+
+
 
 
 ### Mac

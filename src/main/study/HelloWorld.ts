@@ -1,8 +1,14 @@
+// eslint-disable-next-line import/prefer-default-export
 export class HelloWorld {
-  constructor() {}
+  p1: string;
 
-  static print() {
-    console.log(`$$$$$$$$$$$$$$ Hello World!!!`);
+  constructor() {
+    this.p1 = 'aa';
+  }
+
+  public print(): void {
+    this.p1 = 'bb';
+    console.log(`src/main/study/HelloWorld.ts: Hello World!!!`);
   }
 }
 
