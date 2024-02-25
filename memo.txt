@@ -53,12 +53,6 @@ npm run package -- --mac
 npx cross-env DEBUG_PROD=true npm run package -- --mac
 
 
-### Mac
-ls -l@ ファイル名 で属性確認。
-xattr ファイル名
-xattr -d ファイル名 で属性削除。
-
-
 ### index.ejs vs index.html
 Ejs is a template engine.
 After the template is rendered, it generates a .html file for the browser.
@@ -70,3 +64,34 @@ After the template is rendered, it generates a .html file for the browser.
   Classes and Interfaces use PascalCase.
   Constants should be all UPPERCASE.
 
+
+### Mac
+ls -l@ ファイル名 で属性確認。
+xattr ファイル名
+xattr -d ファイル名 で属性削除。
+
+====================================================================
+resolve: npm install electron
+====================================================================
+(node:23973) ExtensionLoadWarning: Warnings loading extension at /Users/koji/Library/Application Support/Electron/extensions/fmkadmapgofadopljbjfkapdkoienihi:
+  Permission 'scripting' is unknown or URL pattern is malformed.
+
+(Use `Electron --trace-warnings ...` to show where the warning was created)
+
+[23973:0225/180843.263959:ERROR:service_worker_task_queue.cc(240)] DidStartWorkerFail migiffogdgdjnpibpnjjoaghakoegcmg: 15
+[23973:0225/180843.264277:ERROR:extensions_browser_client.cc(69)] Extension Error:
+  OTR:     false
+  Level:   2
+  Source:  chrome-extension://migiffogdgdjnpibpnjjoaghakoegcmg/build/background.js
+  Message: Uncaught TypeError: Cannot read properties of undefined (reading 'ExecutionWorld')
+  ID:      migiffogdgdjnpibpnjjoaghakoegcmg
+  Type:    RuntimeError
+  Context: chrome-extension://migiffogdgdjnpibpnjjoaghakoegcmg/build/background.js
+  Stack Trace: 
+    {
+      Line:     1
+      Column:   1
+      URL:      chrome-extension://migiffogdgdjnpibpnjjoaghakoegcmg/build/background.js
+      Function: (anonymous function)
+    }
+====================================================================
