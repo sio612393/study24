@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export class HelloWorld {
+export default class HelloWorld {
   p1: string;
 
   constructor() {

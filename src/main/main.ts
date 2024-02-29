@@ -15,7 +15,8 @@ import log from 'electron-log';
 import Store from 'electron-store';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { HelloWorld } from './study/HelloWorld';
+// import { HelloWorld } from './study/HelloWorld';
+import HelloWorld from './study/HelloWorld';
 import { IPCKeys } from './Constants';
 
 // class AppUpdater {

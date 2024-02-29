@@ -45,7 +45,7 @@ http://127.0.0.1:8889
 ### TEST
 npm run build
 npm test
-
+npm run test -- -- UTstudy2
 
 
 ### package
