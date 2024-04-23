@@ -63,6 +63,21 @@ After the template is rendered, it generates a .html file for the browser.
   Classes and Interfaces use PascalCase.
   Constants should be all UPPERCASE.
 
+# boolean
+let sio = {};
+sio = undefined; // false
+sio = ''; // false
+sio = 0; // false
+sio = {}; // true, .length=false
+sio = []; // true, .length=false
+if (sio.length) {
+  console.log('TRUE ' + sio.length);
+} else {
+  console.log('FALSE ' + sio.length);
+}
+
+
+
 ### import and export syntax:
 ECMAScript Modules (ESM) - import and export
   // a.js
