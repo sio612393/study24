@@ -1,11 +1,15 @@
 // eslint-disable-next-line import/named
 // import { ElectronHandler, StoreHandler } from '../main/preload';
-import { ElectronHandler } from '../main/preload';
+// import { ElectronHandler } from '../main/preload';
 
+export interface ApiKeyStudy1 {
+  ipcStudy1: (key: string, value: number) => Promise<any>
+}
 declare global {
   // eslint-disable-next-line no-unused-vars
   interface Window {
-    electron: ElectronHandler;
+    apiKeyStudy1: ApiKeyStudy1;
+    // electron: ElectronHandler;
     // storeExample: StoreHandler;
     // // electron: {
     // //   store: {

@@ -10,11 +10,7 @@ function Hello() {
       </div>
       <h1>electron-react-boilerplate</h1>
       <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://electron-react-boilerplate.js.org/" target="_blank" rel="noreferrer">
           <button type="button">
             <span role="img" aria-label="books">
               📚
@@ -36,11 +32,15 @@ function Hello() {
         </a>
         <button
           type="button"
-          onClick={() => {
-            const current = window.electron.store.get('ipc-store', 'foo');
-            window.electron.store.set('ipc-store', 'foo', current + 2);
-            const readBack = window.electron.store.get('ipc-store', 'foozzzzzzzzzz');
-            console.log(`App.tsx: ` + readBack);
+          onClick={async () => {
+            const result = await window.apiKeyStudy1.ipcStudy1('foo', 1);
+            console.log(`App: result: ${result.value}`);
+
+            // const current = window.electron.store.get('ipc-store-get', 'foo');
+            // console.log(`App.tsx: ` + current);
+            // window.electron.store.set('ipc-store-set', 'foo', current + 2);
+            // const readBack = window.electron.store.get('ipc-store', 'foozzzzzzzzzz');
+            // console.log(`App.tsx: ` + readBack);
             // console.log(window.electron.store.get('ipc-store', 'foo'));
           }}
         >
